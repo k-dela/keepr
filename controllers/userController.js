@@ -1,10 +1,10 @@
 const db = require('../prisma/db');
 
-module.new = (req,res) => {
+module.exports.new = (req,res) => {
     res.render('signup')
 };
 
-module.create = async (req,res) => {
+module.exports.create = async (req,res) => {
     const {email, password} = req.body;
     console.log(email,password);
 };
