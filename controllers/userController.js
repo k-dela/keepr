@@ -1,12 +1,7 @@
 const db = require('../prisma/db');
-const Joi = require('joi');
 const bcrypt = require('bcryptjs');
 
-// Data validation with Joi
-const userSchema = Joi.object({
-    email: Joi.string().email().required(),
-    password: Joi.string().min(8).required()
-});
+const {userSchema} = require('../utils/validators');
 
 module.exports.new = (req,res) => {
     res.render('signup')
