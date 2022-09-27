@@ -19,7 +19,7 @@ const Knex = require('knex');
 const knex = Knex({
     client: 'pg',
     connection: {
-        host: '127.0.0.1',
+        host: '127.0.0.1', // Make this match production
         user: process.env.DB_USER,
         password: process.env.DB_PASSWORD,
         database: process.env.DB_NAME,
@@ -38,7 +38,7 @@ const sessionConfig = {
         httpOnly: true,
         maxAge: 86400000, // One day in ms
         sameSite: 'strict',
-        secure: false
+        secure: false // Change in Prod to true, IMPORTANT
     },
     name: 'sid',
     resave: false,
@@ -52,8 +52,11 @@ app.use(session(sessionConfig));
 // My own routers for different parts of the app
 const authRoutes = require('./routes/authRouter')
 
+// My own Middlewares
+const {requireUser} = require('./middleware/auth');
 
-app.get('/', (req,res) => {
+
+app.get('/', requireUser , (req,res) => {
     res.render('home')
 });
 
