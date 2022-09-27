@@ -23,7 +23,13 @@ module.exports.create = async (req,res) => {
         const correctPassword = await bcrypt.compare(password, user.password);
         if(!correctPassword) return res.json({m: 'Invalid credentials'});
 
-        
+        // Once the credentials have been checked, we log the user in
+        req.session.regenerate(() => {
+            req.session.user = user.id;
+            req.session.save(() => {
+                res.redirect('/')
+            })
+        });;
     }catch(error) {
         console.error(error);
     }

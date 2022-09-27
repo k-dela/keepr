@@ -16,8 +16,7 @@ model User {
 }
 
 model Session {
-  id        String   @id
-  sid       String
-  data      String
-  expiresAt DateTime
+  sid     String   @id @db.VarChar(255)
+  sess    Json     @db.Json
+  expired DateTime @db.Timestamptz(6)
 }
