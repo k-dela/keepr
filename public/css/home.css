@@ -1,0 +1,94 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#navbar{
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 3px solid black;
+
+    background-color: #202124;
+}
+
+#hamburgerAndLogo{
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    color: white;
+}
+#hamburgerMenu{
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+}
+
+#lupa, #delSearchBtn{
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+#searchBarContainer{
+    display: flex;
+    align-items: center;
+    background-color: #5f6368;
+    width: 450px;
+    padding: 10px;
+    border-radius: 8px;
+}
+#searchInput{
+    width: 100%;
+    height: 30px;
+
+    margin: 0 10px;
+    background-color: #5f6368;
+    border: none;
+    color: white;
+}
+
+#searchInput:focus{
+    outline: none;
+}
+
+#searchInput::placeholder{
+    color: white;
+}
+#logoContainer{
+    display: flex;
+    align-items: center;
+}
+
+main{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    margin-top: 20px;
+}
+
+#sectionsContainer{
+    background-color: coral;
+    padding: 10px 5px;
+}
+
+.singleSection{
+    margin-bottom: 20px;
+}
+.sectionIcon{
+    width: 40px;
+    height: 40px;
+}
+#mainContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: cornflowerblue;
+    margin-left: 10px;
+}
