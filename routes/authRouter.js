@@ -4,6 +4,11 @@ const router = require('express').Router();
 const user = require('../controllers/userController');
 const session = require('../controllers/sessionController');
 
+// Middlewares
+const {checkForUser} = require('../middleware/auth');
+
+router.use(checkForUser);
+
 router.get('/signup', user.new);
 router.post('/signup', user.create);
 
