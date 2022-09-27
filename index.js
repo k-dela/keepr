@@ -50,17 +50,20 @@ const sessionConfig = {
 
 app.use(session(sessionConfig));
 // My own routers for different parts of the app
-const authRoutes = require('./routes/authRouter')
+const authRoutes = require('./routes/authRouter');
+const noteRoutes = require('./routes/noteRouter');
 
 // My own Middlewares
-const {requireUser} = require('./middleware/auth');
+// const {requireUser} = require('./middleware/auth');
 
 
-app.get('/', requireUser , (req,res) => {
-    res.render('home')
-});
+// app.get('/', requireUser , (req,res) => {
+//     res.render('home')
+// });
 
 // Register routers in the app
+app.use(noteRoutes);
 app.use(authRoutes);
+
 
 app.listen(PORT, () => console.log('We are live on ', PORT));
