@@ -7,13 +7,14 @@ import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 
 // Pages
 import Home from './pages/Home.jsx'
-import Signup from './pages/Signup.jsx'
+import Signup, {signupAction} from './pages/Signup.jsx'
 import Login from './pages/Login.jsx'
 
 const router = createBrowserRouter([
   {
     path: '/signup',
-    element: <Signup />
+    element: <Signup />,
+    action: signupAction
   },
   {
     path: '/login',
