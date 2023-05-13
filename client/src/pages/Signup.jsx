@@ -1,4 +1,4 @@
-import { Form, useActionData } from "react-router-dom"
+import { Form, useActionData, redirect } from "react-router-dom"
 import supabase from "../supabase";
 
 export const signupAction = async ({request}) => {
@@ -19,7 +19,7 @@ export const signupAction = async ({request}) => {
     }
 
 
-    return data.user;
+    return redirect("/login");
 }
 export default function Signup() {
     const actionData = useActionData();
