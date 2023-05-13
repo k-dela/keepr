@@ -1,3 +1,10 @@
+import { useAuth } from "../context/AuthContext";
 export default function Home() {
-    return <p>Notes will go here</p>
+    const user = useAuth();
+    return (
+        <div>   
+            <h1>Home</h1>
+            <p>{JSON.stringify(user)}</p>
+        </div>
+    )
 }
