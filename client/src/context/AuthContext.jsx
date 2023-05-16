@@ -10,8 +10,15 @@ export const AuthProvider = ({children}) => {
     const[loading, setLoading] = useState(true);
 
     const checkCurrentUser = async () => {
-        const { data: { user } } = await supabase.auth.getUser()
-        setUser(user);
+        const { data, error } = await supabase.auth.getSession();
+
+        if(data.session === null) {
+            setUser(null);
+            setLoading(false);
+            return; 
+        }
+        console.log(data.session );
+        setUser(data.session.user || null);
         setLoading(false);
     }
 
