@@ -4,7 +4,14 @@ export default function Home() {
     return (
         <div>   
             <h1>Home</h1>
-            <p>{JSON.stringify(user)}</p>
+            <h1 className="text-3xl font-bold underline">
+      Hello world!
+    </h1>
+            <div>
+             <p className="bg-blue-500">
+                {JSON.stringify(user)}
+            </p>
+            </div>
         </div>
     )
 }
